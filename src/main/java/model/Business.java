@@ -1,6 +1,6 @@
 package model;
 
-public class Concept {
+public class Business {
     private String serial;
     private String concept;
     private String conceptIndex;

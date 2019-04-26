@@ -1,6 +1,6 @@
 package io;
 
-import model.Concept;
+import model.Business;
 import model.Stock;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,7 +14,7 @@ public class FileSource {
     public static FileWriter fWriter=null;
     public static BufferedWriter bWriter=null;
 
-    public static void writeConcept(String filePath, List<Concept> conceptList, String title){
+    public static void writeConcept(String filePath, List<Business> businessList, String title){
         try{
 
             File dFile = new File(filePath);
@@ -30,11 +30,11 @@ public class FileSource {
                 bWriter.newLine();
             }
 
-            for(Concept concept:conceptList ){
-                String line=concept.getSerial()+","+concept.getConcept()+","+concept.getConceptIndex()+","
-                        +concept.getUpdown()+","+concept.getInFund()+","+concept.getOutFund()+","
-                        +concept.getNetFund()+","+concept.getCompanyAmount()+","+concept.getLeaderStock()+","
-                        +concept.getLeaderUpdown()+","+concept.getLeaderPrice();
+            for(Business business : businessList){
+                String line= business.getSerial()+","+ business.getConcept()+","+ business.getConceptIndex()+","
+                        + business.getUpdown()+","+ business.getInFund()+","+ business.getOutFund()+","
+                        + business.getNetFund()+","+ business.getCompanyAmount()+","+ business.getLeaderStock()+","
+                        + business.getLeaderUpdown()+","+ business.getLeaderPrice();
                 bWriter.write(line);
                 bWriter.newLine();
             }

@@ -9,7 +9,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.*;
 
-public class LeaderStockParser {
+public class BusinessStockParser {
     public static List<Stock> getStock()
     {
         try{
