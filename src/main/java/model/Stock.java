@@ -15,6 +15,16 @@ public class Stock {
     private String marketValue;
     private String PE;
 
+    public void setConcept(String concept) {
+        this.concept = concept;
+    }
+
+    public String getConcept() {
+        return concept;
+    }
+
+    private String concept;
+
     public String getSerial() {
         return serial;
     }

@@ -1,6 +1,7 @@
 package io;
 
 import model.Concept;
+import model.Stock;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedWriter;
@@ -13,7 +14,7 @@ public class FileSource {
     public static FileWriter fWriter=null;
     public static BufferedWriter bWriter=null;
 
-     public static void writeContent(String filePath, List<Concept> conceptList, String title){
+    public static void writeConcept(String filePath, List<Concept> conceptList, String title){
         try{
 
             File dFile = new File(filePath);
@@ -34,6 +35,42 @@ public class FileSource {
                         +concept.getUpdown()+","+concept.getInFund()+","+concept.getOutFund()+","
                         +concept.getNetFund()+","+concept.getCompanyAmount()+","+concept.getLeaderStock()+","
                         +concept.getLeaderUpdown()+","+concept.getLeaderPrice();
+                bWriter.write(line);
+                bWriter.newLine();
+            }
+
+            bWriter.flush();
+            bWriter.close();
+
+            fWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeStock(String filePath, List<Stock> stockList, String title){
+        try{
+
+            File dFile = new File(filePath);
+            if (!dFile.isFile()) {
+                dFile.createNewFile();
+            }
+            fWriter = new FileWriter(dFile, true);
+
+            bWriter= new BufferedWriter(fWriter);
+
+            if(StringUtils.isNotEmpty(title)){
+                bWriter.write(title);
+                bWriter.newLine();
+            }
+
+            System.out.println("stocks："+stockList.size());
+            for(Stock stock:stockList ){
+                String line=stock.getConcept()+","+stock.getSerial()+","+stock.getCode()+","+stock.getName()+","
+                        +stock.getPrice()+","+stock.getUpdown()+","+stock.getUpdownPrice()+","
+                        +stock.getTurnover()+","+stock.getVolRatio()+","+stock.getAmplitude()+","
+                        +stock.getVolRatio()+","+stock.getTradeable()+","+stock.getMarketValue()+","+stock.getPE();
+
                 bWriter.write(line);
                 bWriter.newLine();
             }
