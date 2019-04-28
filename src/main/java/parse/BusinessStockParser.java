@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class BusinessStockParser {
-    public static List<Stock> getStock()
+    public static List<Stock> getStock(String link)
     {
         try{
 
@@ -19,7 +19,7 @@ public class BusinessStockParser {
              HashMap<String,String> urlMap=new HashMap<String,String>();
 
              Document conceptDoc=
-                    Jsoup.connect("http://q.10jqka.com.cn/thshy/detail/code/881163/").get();
+                    Jsoup.connect(link).get();
              Elements conceptElements =
                     conceptDoc.getElementsByClass("category boxShadow m_links").select("a");
              for(Element conceptElement:conceptElements){

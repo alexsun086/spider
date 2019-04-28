@@ -14,6 +14,7 @@ public class Stock {
     private String tradeable;
     private String marketValue;
     private String PE;
+    private String concept;
 
     public void setConcept(String concept) {
         this.concept = concept;
@@ -22,8 +23,6 @@ public class Stock {
     public String getConcept() {
         return concept;
     }
-
-    private String concept;
 
     public String getSerial() {
         return serial;

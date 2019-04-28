@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessParser {
-    public static List<Business> getConcept()
+    public static List<Business> getBusiness(String link)
     {
         try{
             List<Business> businesses = new ArrayList<Business>();
 
-            Document doc = Jsoup.connect("http://data.10jqka.com.cn/funds/hyzjl/").get();
+            Document doc = Jsoup.connect(link).get();
             Elements elements =
                     doc.getElementsByClass("m-table J-ajax-table").select("tbody").select("tr");
 
@@ -25,8 +25,8 @@ public class BusinessParser {
 
                 Business business =new Business();
                 business.setSerial(lines.first().html());
-                business.setConcept(lines.get(1).getElementsByAttribute("target").html());
-                business.setConceptIndex(lines.get(2).html());
+                business.setBusiness(lines.get(1).getElementsByAttribute("target").html());
+                business.setBusinessIndex(lines.get(2).html());
                 business.setUpdown(lines.get(3).html());
                 business.setInFund(lines.get(4).html());
                 business.setOutFund(lines.get(5).html());

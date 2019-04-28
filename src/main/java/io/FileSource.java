@@ -14,7 +14,7 @@ public class FileSource {
     public static FileWriter fWriter=null;
     public static BufferedWriter bWriter=null;
 
-    public static void writeConcept(String filePath, List<Business> businessList, String title){
+    public static void writeBusiness(String filePath, List<Business> businessList, String title){
         try{
 
             File dFile = new File(filePath);
@@ -31,7 +31,7 @@ public class FileSource {
             }
 
             for(Business business : businessList){
-                String line= business.getSerial()+","+ business.getConcept()+","+ business.getConceptIndex()+","
+                String line= business.getSerial()+","+ business.getBusiness()+","+ business.getBusinessIndex()+","
                         + business.getUpdown()+","+ business.getInFund()+","+ business.getOutFund()+","
                         + business.getNetFund()+","+ business.getCompanyAmount()+","+ business.getLeaderStock()+","
                         + business.getLeaderUpdown()+","+ business.getLeaderPrice();

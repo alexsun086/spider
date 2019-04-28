@@ -2,8 +2,8 @@ package model;
 
 public class Business {
     private String serial;
-    private String concept;
-    private String conceptIndex;
+    private String business;
+    private String businessIndex;
     private String updown;
     private String inFund;
     private String outFund;
@@ -17,12 +17,12 @@ public class Business {
         this.serial = serial;
     }
 
-    public void setConcept(String concept) {
-        this.concept = concept;
+    public void setBusiness(String business) {
+        this.business = business;
     }
 
-    public void setConceptIndex(String conceptIndex) {
-        this.conceptIndex = conceptIndex;
+    public void setBusinessIndex(String businessIndex) {
+        this.businessIndex = businessIndex;
     }
 
     public void setUpdown(String updown) {
@@ -61,12 +61,12 @@ public class Business {
         return serial;
     }
 
-    public String getConcept() {
-        return concept;
+    public String getBusiness() {
+        return business;
     }
 
-    public String getConceptIndex() {
-        return conceptIndex;
+    public String getBusinessIndex() {
+        return businessIndex;
     }
 
     public String getUpdown() {
